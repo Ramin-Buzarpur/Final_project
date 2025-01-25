@@ -1,6 +1,24 @@
+% Ramin Buzarpur
+% student id : 402541206
+% final project 
+
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\lstdefinelanguage{yaml}{
+    keywords={true,false,null,y,n},
+    keywordstyle=\color{blue},
+    basicstyle=\ttfamily\small,
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    morestring=[b]',
+    morestring=[b]"
+}
 
 \title{Git, GitHub, Vim, and Bash}
 \author{}
@@ -41,4 +59,44 @@
     \item \textbf{Conclusion}
 \end{enumerate}
 
+\newpage
+
+\section*{1.1 Setting up a Repository and Committing Changes}
+Setting up a Git repository involves several steps:
+\begin{enumerate}
+    \item \textbf{Installing Git:}
+    Install Git on your system if it’s not already installed:
+    \begin{itemize}
+        \item Linux:
+        \begin{lstlisting}[language=bash]
+sudo apt update
+sudo apt install git
+        \end{lstlisting}
+        \item Windows/macOS: Download Git from \url{https://git-scm.com}.
+    \end{itemize}
+    \item \textbf{Initializing a Repository:}
+    Navigate to your project directory and initialize a repository:
+    \begin{lstlisting}[language=bash]
+cd /path/to/project
+git init
+    \end{lstlisting}
+    \item \textbf{Configuring Git:}
+    Set your username and email:
+    \begin{lstlisting}[language=bash]
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+    \end{lstlisting}
+    \item \textbf{Staging and Committing Changes:}
+    Add and commit files:
+    \begin{lstlisting}[language=bash]
+git add .
+git commit -m "Initial commit"
+    \end{lstlisting}
+    \item \textbf{Connecting to GitHub:}
+    Add a remote and push changes:
+    \begin{lstlisting}[language=bash]
+git remote add origin https://github.com/username/repository.git
+git push -u origin master
+    \end{lstlisting}
+\end{enumerate}
 \end{document}
