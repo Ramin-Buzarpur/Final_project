@@ -99,4 +99,37 @@ git remote add origin https://github.com/username/repository.git
 git push -u origin master
     \end{lstlisting}
 \end{enumerate}
+
+\section*{1.2 GitHub Actions for LaTeX Compilation}
+GitHub Actions automates LaTeX document compilation. Steps:
+\begin{enumerate}
+    \item Create a workflow file in \texttt{.github/workflows/latex.yml}.
+    \item Use the following configuration:
+    \begin{lstlisting}[language=yaml]
+name: Compile LaTeX
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dante-ev/latex-action@v2
+        with:
+          root_file: main.tex
+          latexmk_shell_escape: true
+    \end{lstlisting}
+\end{enumerate}
+
+\section*{2.1 Advanced Features of Vim}
+\begin{enumerate}
+    \item \textbf{Macros:} Record and replay commands with \texttt{q}.
+    \item \textbf{Multiple Cursors:} Use the \texttt{vim-multiple-cursors} plugin.
+    \item \textbf{Registers:} Save and retrieve text blocks.
+\end{enumerate}
 \end{document}
