@@ -132,4 +132,27 @@ jobs:
     \item \textbf{Multiple Cursors:} Use the \texttt{vim-multiple-cursors} plugin.
     \item \textbf{Registers:} Save and retrieve text blocks.
 \end{enumerate}
+
+\section*{2.2 Memory Profiling}
+\subsection*{2.2.1 Memory Leaks}
+Memory leaks occur when dynamically allocated memory is not freed, leading to inefficiencies.
+
+\subsection*{2.2.2 Valgrind}
+Detect memory leaks with:
+\begin{lstlisting}[language=bash]
+gcc -g -o program program.c
+valgrind --leak-check=full ./program
+\end{lstlisting}
+
+\section*{2.3 Bash Scripting}
+
+\subsection*{2.3.1 fzf}
+\textbf{Fuzzy Searching:} Fuzzy searching is a technique used to find approximate matches rather than exact ones. This is particularly useful when you don't remember the exact name of a file, command, or data.
+
+\subsubsection*{What does \texttt{ls | fzf} do?}
+The command \texttt{ls | fzf}:
+\begin{itemize}
+    \item Lists all files and directories in the current directory using \texttt{ls}.
+    \item Pipes the output to \texttt{fzf}, which allows the user to interactively search and select an item.
+\end{itemize}
 \end{document}
