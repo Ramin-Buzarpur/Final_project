@@ -155,4 +155,32 @@ The command \texttt{ls | fzf}:
     \item Lists all files and directories in the current directory using \texttt{ls}.
     \item Pipes the output to \texttt{fzf}, which allows the user to interactively search and select an item.
 \end{itemize}
+
+\subsection*{2.3.2 Using fzf to Find Your Favorite PDF}
+
+\subsubsection*{1. Listing all PDF files}
+To list all PDF files in the current directory and its subdirectories, use the following command:
+\begin{lstlisting}[language=bash]
+fd --extension pdf
+\end{lstlisting}
+
+\subsubsection*{2. Selecting a PDF using fzf}
+To interactively select a PDF file from the list generated above, pipe the output to \texttt{fzf}:
+\begin{lstlisting}[language=bash]
+fd --extension pdf | fzf
+\end{lstlisting}
+
+\subsection*{2.3.3 Opening the File Using Zathura}
+To open the selected PDF file using Zathura, combine the above commands as follows:
+\begin{lstlisting}[language=bash]
+zathura $(fd --extension pdf | fzf)
+\end{lstlisting}
+
+\subsubsection*{Explanation of \texttt{\$(command)} Syntax}
+The syntax \texttt{\$(command)}:
+\begin{itemize}
+    \item Runs the command inside the parentheses.
+    \item Substitutes the output of the command as an argument for the preceding command.
+\end{itemize}
+In this case, the command finds and selects a PDF file, and its path is passed to \texttt{zathura} to open it.
 \end{document}
